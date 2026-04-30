@@ -1,0 +1,4 @@
+frame_cache/
+__pycache__/
+*.mp4
+*.txt

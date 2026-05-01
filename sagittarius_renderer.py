@@ -929,3 +929,30 @@ class SagittariusRenderer:
                 print(f"\nVideo saved to {self.final_video_path}")
         if self.show_gui:
             cv2.destroyAllWindows()
+
+
+# ---------------------------------------------------------
+# EXECUTION SCRIPT
+# ---------------------------------------------------------
+
+if __name__ == "__main__":
+    print("Initializing Cinematic Gargantua Renderer...")
+    # Instantiate renderer at a good preview resolution. Disabling live GUI since we just want to save the final frame
+    renderer = SagittariusRenderer(width=1280, show_gui=False, use_caching=False)
+    
+    # Standard cinematic framing. Slightly above the disc, looking down/forward at the black hole core
+    cam_pos = np.array([0.0, 2.5, -28.0])
+    cam_fwd = np.array([0.0, -0.05, 1.0])
+    cam_up  = np.array([0.0, 1.0, 0.0])
+    fov_val = 1.0  # Approx 60 degrees FOV
+    
+    print("Rendering frame (this may take a few seconds depending on GPU)...")
+    renderer.step(cam_pos, cam_fwd, cam_up, fov_val)
+    
+    # Fetch result from the GPU
+    img_rgb = np.clip(renderer.pixels_device.numpy() * 255.0, 0, 255).astype(np.uint8)
+    img_bgr = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2BGR)
+    
+    out_filename = "gargantua_render.jpg"
+    cv2.imwrite(out_filename, img_bgr)
+    print(f"\nSuccess! Final image saved to: {out_filename}")

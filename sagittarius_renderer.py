@@ -938,7 +938,7 @@ class SagittariusRenderer:
 if __name__ == "__main__":
     print("Initializing Cinematic Gargantua Renderer...")
     # Instantiate renderer at a good preview resolution. Disabling live GUI since we just want to save the final frame
-    renderer = SagittariusRenderer(width=1280, show_gui=False, use_caching=False)
+    renderer = SagittariusRenderer(width=1920, show_gui=False, use_caching=False)
     
     # Standard cinematic framing. Slightly above the disc, looking down/forward at the black hole core
     cam_pos = np.array([0.0, 2.5, -28.0])

@@ -745,14 +745,14 @@ class SagittariusRenderer:
         self.cfg_sim.gm = self.cfg_render.gm
         
         # INTERSTELLAR: Turbulence tuned for stretched, cinematic orbital bands
-        self.cfg_sim.vertical_noise_scale = 1.2
+        self.cfg_sim.vertical_noise_scale = 0.1
         self.cfg_sim.vertical_strength = 0.9
         self.cfg_sim.warp_field_scale = 1.0
         self.cfg_sim.warp_strength = 1.8
         self.cfg_sim.tangential_stretch = 90.0
         self.cfg_sim.filament_noise_scale = 1.5
         self.cfg_sim.filament_contrast = 6.0
-        self.cfg_sim.clump_noise_scale = 0.5
+        self.cfg_sim.clump_noise_scale = 0.1
         self.cfg_sim.clump_strength = 0.2
         self.cfg_sim.disk_noise_strength = 1.5
 

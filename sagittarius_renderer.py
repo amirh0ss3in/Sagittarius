@@ -710,7 +710,7 @@ class SagittariusRenderer:
         self.cfg_render.far_field = 80.0
         self.cfg_render.volume_substeps = 64
         self.cfg_render.density_multiplier = 0.6
-        self.cfg_render.density_pow = 1.5
+        self.cfg_render.density_pow = 1.7
         self.cfg_render.emission_strength = 25.0
         self.cfg_render.absorption_coefficient = 8.0
         
